@@ -10,7 +10,7 @@ export const test = catchAsync(async (req, res) => {
   })
 })
 
-// List All inquiries
+// List All inquiries updated
 export const getAllContacts = factory.getAll(Contact)
 // Get a single inquiry
 export const getContact = factory.getOne(Contact)
