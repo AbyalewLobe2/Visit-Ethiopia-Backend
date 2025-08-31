@@ -1,15 +1,17 @@
-import dotenv from 'dotenv';
-import app from './app.js';
-import connectDB from './config/db.js';
+import dotenv from 'dotenv'
+import app from './app.js'
+import connectDB from './config/db.js'
 
 if (process.env.NODE_ENV !== 'production') {
-  dotenv.config({ path: './config.env' });
+  dotenv.config({ path: './config.env' })
 }
 
+// ✅ Connect to MongoDB once
+connectDB()
 
-// ✅ Connect to MongoDB once when the function is initialized
-connectDB();
+// ✅ Use Render's assigned port
+const PORT = process.env.PORT || 3000
 
-
-// ✅ Export app instead of listening to a port
-export default app;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`)
+})
