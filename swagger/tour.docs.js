@@ -56,7 +56,6 @@
  *           type: array
  *           items:
  *             type: string
- *             enum: [cultural, adventure, nature, historical, religious]
  *           description: Tour categories
  *           example: ["cultural", "adventure"]
  *         difficulty:
@@ -167,43 +166,9 @@
  *         description:
  *           type: string
  *           example: "Updated tour description..."
- *         shortDescription:
- *           type: string
- *           example: "Updated short description"
- *         duration:
- *           type: object
- *           properties:
- *             days:
- *               type: number
- *               example: 8
- *             nights:
- *               type: number
- *               example: 7
- *         destinations:
- *           type: array
- *           items:
- *             type: string
- *           example: ["Addis Ababa", "Lalibela", "Gondar", "Axum"]
- *         categories:
- *           type: array
- *           items:
- *             type: string
- *           example: ["cultural", "historical"]
- *         difficulty:
- *           type: string
- *           example: "easy"
  *         price:
  *           type: number
  *           example: 1399.99
- *         discount:
- *           type: number
- *           example: 15
- *         coverImage:
- *           type: string
- *           example: "updated-cover-image.jpg"
- *         maxGroupSize:
- *           type: number
- *           example: 20
  *         status:
  *           type: string
  *           enum: [active, inactive, draft]
@@ -256,10 +221,6 @@
  *       in: cookie
  *       name: jwt
  *       description: JWT token stored in HTTP-only cookie
- *
- * security:
- *   - BearerAuth: []
- *   - CookieAuth: []
  */
 
 /**
@@ -268,6 +229,30 @@
  *   name: Tours
  *   description: Tour management and exploration endpoints
  */
+
+/**
+ * @swagger
+ * /api/v1/tours/tour:
+ *   get:
+ *     summary: Test tour route
+ *     tags: [Tours]
+ *     description: Simple test endpoint for tour routes
+ *     responses:
+ *       201:
+ *         description: Test successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "success"
+ *                 message:
+ *                   type: string
+ *                   example: "test file"
+ */
+
 /**
  * @swagger
  * /api/v1/tours:
@@ -571,18 +556,11 @@
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *                 example: "Updated Ethiopian Highlands Adventure"
- *               price:
- *                 type: number
- *                 example: 1399.99
- *               status:
- *                 type: string
- *                 enum: [active, inactive, draft]
- *                 example: "active"
+ *             $ref: '#/components/schemas/UpdateTourRequest'
+ *           example:
+ *             title: "Updated Ethiopian Highlands Adventure"
+ *             price: 1399.99
+ *             status: "active"
  *     responses:
  *       200:
  *         description: Tour updated successfully
@@ -720,84 +698,4 @@
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
- */
-
-/**
- * @swagger
- * components:
- *   examples:
- *     # API Features Query Parameter Examples
- *     FilterExamples:
- *       summary: Common filtering examples using API features
- *       value:
- *         # Basic filtering
- *         title: "Ethiopian"
- *         difficulty: "moderate"
- *         categories: "cultural,adventure"
- *         destinations: "Lalibela,Gondar"
- *         status: "active"
- *         isFeatured: true
- *
- *         # Advanced filtering with operators (gte, lte, gt, lt, ne)
- *         "maxGroupSize[gte]": 10
- *         "averageRating[gte]": 4.0
- *         "duration.days[lte]": 7
- *         "price[gt]": 1000
- *         "price[lt]": 2000
- *
- *         # Price range filtering (minPrice, maxPrice)
- *         minPrice: 500
- *         maxPrice: 2000
- *
- *         # Sorting (sort)
- *         sort: "price,-averageRating,title"
- *
- *         # Field selection (fields)
- *         fields: "title,price,difficulty,coverImage"
- *
- *         # Pagination (page, limit)
- *         page: 1
- *         limit: 20
- *
- *     SortExamples:
- *       summary: Sorting examples using API features
- *       value:
- *         # Single field sorting
- *         sort: "price"
- *
- *         # Multiple field sorting
- *         sort: "price,-averageRating,title"
- *
- *         # Descending order (prefix with -)
- *         sort: "-price,-createdAt"
- *
- *         # Ascending order (default)
- *         sort: "title,price"
- *
- *     FieldSelectionExamples:
- *       summary: Field selection examples using API features
- *       value:
- *         # Select specific fields
- *         fields: "title,price,difficulty"
- *
- *         # Exclude specific fields
- *         fields: "-__v,-createdAt,-updatedAt"
- *
- *         # Mixed selection and exclusion
- *         fields: "title,price,-__v"
- *
- *     PaginationExamples:
- *       summary: Pagination examples using API features
- *       value:
- *         # First page with 10 results
- *         page: 1
- *         limit: 10
- *
- *         # Second page with 20 results
- *         page: 2
- *         limit: 20
- *
- *         # Custom page size
- *         page: 3
- *         limit: 15
  */
