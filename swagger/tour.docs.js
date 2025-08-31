@@ -158,6 +158,57 @@
  *           type: number
  *           example: 15
  *
+ *     UpdateTourRequest:
+ *       type: object
+ *       properties:
+ *         title:
+ *           type: string
+ *           example: "Updated Ethiopian Highlands Adventure"
+ *         description:
+ *           type: string
+ *           example: "Updated tour description..."
+ *         shortDescription:
+ *           type: string
+ *           example: "Updated short description"
+ *         duration:
+ *           type: object
+ *           properties:
+ *             days:
+ *               type: number
+ *               example: 8
+ *             nights:
+ *               type: number
+ *               example: 7
+ *         destinations:
+ *           type: array
+ *           items:
+ *             type: string
+ *           example: ["Addis Ababa", "Lalibela", "Gondar", "Axum"]
+ *         categories:
+ *           type: array
+ *           items:
+ *             type: string
+ *           example: ["cultural", "historical"]
+ *         difficulty:
+ *           type: string
+ *           example: "easy"
+ *         price:
+ *           type: number
+ *           example: 1399.99
+ *         discount:
+ *           type: number
+ *           example: 15
+ *         coverImage:
+ *           type: string
+ *           example: "updated-cover-image.jpg"
+ *         maxGroupSize:
+ *           type: number
+ *           example: 20
+ *         status:
+ *           type: string
+ *           enum: [active, inactive, draft]
+ *           example: "active"
+ *
  *     TourResponse:
  *       type: object
  *       properties:
