@@ -217,30 +217,6 @@
  *   name: Tours
  *   description: Tour management and exploration endpoints
  */
-
-/**
- * @swagger
- * /api/v1/tours/tour:
- *   get:
- *     summary: Test tour route
- *     tags: [Tours]
- *     description: Simple test endpoint for tour routes
- *     responses:
- *       201:
- *         description: Test successful
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: "success"
- *                 message:
- *                   type: string
- *                   example: "test file"
- */
-
 /**
  * @swagger
  * /api/v1/tours:
