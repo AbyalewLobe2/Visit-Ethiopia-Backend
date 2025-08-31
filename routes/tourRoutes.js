@@ -1,7 +1,6 @@
 import express from 'express'
 
 import {
-  test,
   createTour,
   getAllTours,
   getTour,
@@ -14,9 +13,6 @@ import {
 import { protect, restrict } from '../controllers/authController.js'
 
 const router = express.Router()
-
-// Test route
-router.get('/tour', test)
 
 // ✅ Create tour (protected & restricted)
 router.post('/', protect, restrict('admin'), createTour)
