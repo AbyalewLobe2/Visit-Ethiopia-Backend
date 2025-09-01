@@ -206,8 +206,8 @@
 /**
  * @swagger
  * tags:
- *   name: Authentication
- *   description: User authentication and authorization endpoints
+ *   name: Authentication and User Management
+ *   description: User authentication and authorization endpoints and user management endpoints
  */
 
 /**
